@@ -7,11 +7,11 @@ Trata-se de um CRUD em flutter, responsavel por cadastrar cryptomoedas.
 
 Acesse um diretório qualquer e execute o comando abaixo:
 
-git clone https://github.com/visued/BitMob.git
+#git clone https://github.com/visued/BitMob.git
 
-cd BitMob
+#cd BitMob
 
-flutter run
+#flutter run
 
 Segue algumas imagens do projeto:
 
