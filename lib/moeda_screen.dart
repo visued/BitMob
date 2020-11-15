@@ -29,8 +29,12 @@ class _MoedaScreenState extends State<MoedaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastrar Cryptomoeda'),
+        title: Text('Cadastrar Cryptomoeda',
+            style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.orangeAccent,
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
       ),
       backgroundColor: Colors.black,
       body: Container(
@@ -64,7 +68,7 @@ class _MoedaScreenState extends State<MoedaScreen> {
             TextField(
               controller: _valorController,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.money, color: Colors.deepOrange),
+                prefixIcon: Icon(Icons.attach_money, color: Colors.deepOrange),
                 labelText: 'Valor',
                 labelStyle: new TextStyle(color: Colors.deepOrange),
                 enabledBorder: UnderlineInputBorder(

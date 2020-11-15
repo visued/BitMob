@@ -30,74 +30,79 @@ class _ListViewMoedaState extends State<ListViewMoeda> {
       title: 'Exemplo de Cadastro',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('BitMob - Listagem de Cryptomoedas'),
+          title: Text('BitMob - Listagem de Cryptomoedas',
+              style: TextStyle(color: Colors.black)),
           centerTitle: true,
           backgroundColor: Colors.orangeAccent,
         ),
         body: Container(
-          child: Center(
-            child: ListView.builder(
-                itemCount: items.length,
-                padding: const EdgeInsets.all(15.0),
-                itemBuilder: (context, position) {
-                  return Column(
-                    children: [
-                      Divider(height: 5.0, color: Colors.grey),
-                      ListTile(
-                        title: Text(
-                          '${items[position].nome} - ${items[position].simbolo}',
-                          style: TextStyle(
-                            fontSize: 22.0,
-                            color: Colors.deepOrangeAccent,
-                          ),
-                        ),
-                        subtitle: Row(children: [
-                          Text('USD ${items[position].valor}',
-                              style: new TextStyle(
-                                  fontSize: 18.0,
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.orangeAccent)),
-                          Text(' ${items[position].variacao_dia}',
-                              style: new TextStyle(
-                                  fontSize: 16.0,
-                                  fontStyle: FontStyle.italic,
-                                  color:
-                                      items[position].variacao_dia.contains('-')
-                                          ? Colors.red
-                                          : Colors.green)),
-                          IconButton(
-                              icon: const Icon(
-                                Icons.remove_circle_outline,
-                                color: Colors.redAccent,
-                              ),
-                              onPressed: () => _deleteMoeda(
-                                  context, items[position], position)),
-                        ]),
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.deepOrange,
-                          radius: 15.0,
-                          child: Text(
-                            '${items[position].id}',
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(
+                        'https://raw.githubusercontent.com/visued/BitMob/master/logo/logo.png'),
+                    fit: BoxFit.cover)),
+            child: Center(
+              child: ListView.builder(
+                  itemCount: items.length,
+                  padding: const EdgeInsets.all(15.0),
+                  itemBuilder: (context, position) {
+                    return Column(
+                      children: [
+                        Divider(height: 5.0, color: Colors.grey),
+                        ListTile(
+                          title: Text(
+                            '${items[position].nome} - ${items[position].simbolo}',
                             style: TextStyle(
-                              fontSize: 15.0,
-                              color: Colors.white,
+                              fontSize: 22.0,
+                              color: Colors.deepOrangeAccent,
                             ),
                           ),
+                          subtitle: Row(children: [
+                            Text('USD ${items[position].valor}',
+                                style: new TextStyle(
+                                    fontSize: 18.0,
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.orangeAccent)),
+                            Text(' ${items[position].variacao_dia}',
+                                style: new TextStyle(
+                                    fontSize: 16.0,
+                                    fontStyle: FontStyle.italic,
+                                    color: items[position]
+                                            .variacao_dia
+                                            .contains('-')
+                                        ? Colors.red
+                                        : Colors.green)),
+                            IconButton(
+                                icon: const Icon(
+                                  Icons.remove_circle_outline,
+                                  color: Colors.redAccent,
+                                ),
+                                onPressed: () => _deleteMoeda(
+                                    context, items[position], position)),
+                          ]),
+                          leading: CircleAvatar(
+                            backgroundColor: Colors.deepOrange,
+                            radius: 15.0,
+                            child: Text(
+                              '${items[position].id}',
+                              style: TextStyle(
+                                fontSize: 15.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          onTap: () =>
+                              _navigateToMoeda(context, items[position]),
                         ),
-                        onTap: () => _navigateToMoeda(context, items[position]),
-                      ),
-                    ],
-                  );
-                }),
-          ),
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(
-                      'https://raw.githubusercontent.com/visued/BitMob/master/logo/logo.png'),
-                  fit: BoxFit.cover)),
-        ),
+                      ],
+                    );
+                  }),
+            )),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: Icon(
+            Icons.add,
+            color: Colors.black,
+          ),
           onPressed: () => _createNewMoeda(context),
           backgroundColor: Colors.orangeAccent,
         ),
