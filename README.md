@@ -13,4 +13,4 @@ Acesse um diretório qualquer e execute o comando abaixo:
 
 Segue algumas imagens do projeto:
 
-![img](/screenshots/Screenshot_01.png?raw=true "Foto 1"){:height="36px" width="36px"} ![img](/screenshots/Screenshot_02.png?raw=true "Foto 2"){:height="36px" width="36px"}
+![img](/screenshots/Screenshot_01.png?raw=true "Foto 1") ![img](/screenshots/Screenshot_02.png?raw=true "Foto 2")
