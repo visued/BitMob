@@ -29,11 +29,16 @@ class _MoedaScreenState extends State<MoedaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Moeda'),
+        title: Text('Cadastrar Cryptomoeda'),
         backgroundColor: Colors.orangeAccent,
       ),
       backgroundColor: Colors.black,
       body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(
+                    'https://img.freepik.com/free-photo/close-up-heap-golden-bitcoin-physical-coins-black-background_273651-208.jpg?size=626&ext=jpg'),
+                fit: BoxFit.cover)),
         margin: EdgeInsets.all(15.0),
         alignment: Alignment.center,
         child: Column(
@@ -77,6 +82,8 @@ class _MoedaScreenState extends State<MoedaScreen> {
             TextField(
               controller: _simboloController,
               decoration: InputDecoration(
+                  prefixIcon:
+                      Icon(Icons.emoji_symbols, color: Colors.deepOrange),
                   labelText: 'Simbolo',
                   labelStyle: new TextStyle(color: Colors.deepOrange),
                   enabledBorder: UnderlineInputBorder(
@@ -92,6 +99,8 @@ class _MoedaScreenState extends State<MoedaScreen> {
             TextField(
               controller: _variacaoDiaController,
               decoration: InputDecoration(
+                  prefixIcon:
+                      Icon(Icons.insert_chart, color: Colors.deepOrange),
                   labelText: 'Variação dia',
                   labelStyle: new TextStyle(color: Colors.deepOrange),
                   enabledBorder: UnderlineInputBorder(

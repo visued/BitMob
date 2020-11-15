@@ -30,62 +30,71 @@ class _ListViewMoedaState extends State<ListViewMoeda> {
       title: 'Exemplo de Cadastro',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Cadastro de Moedas'),
+          title: Text('BitMob - Listagem de Cryptomoedas'),
           centerTitle: true,
           backgroundColor: Colors.orangeAccent,
         ),
-        backgroundColor: Colors.black,
-        body: Center(
-          child: ListView.builder(
-              itemCount: items.length,
-              padding: const EdgeInsets.all(15.0),
-              itemBuilder: (context, position) {
-                return Column(
-                  children: [
-                    Divider(height: 5.0, color: Colors.grey),
-                    ListTile(
-                      title: Text(
-                        '${items[position].nome} - ${items[position].simbolo}',
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          color: Colors.deepOrangeAccent,
-                        ),
-                      ),
-                      subtitle: Row(children: [
-                        Text('USD ${items[position].valor}',
-                            style: new TextStyle(
-                                fontSize: 18.0,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.orangeAccent)),
-                        Text(' ${items[position].variacao_dia}',
-                            style: new TextStyle(
-                                fontSize: 16.0,
-                                fontStyle: FontStyle.italic,
-                                color:
-                                    items[position].variacao_dia.contains('-')
-                                        ? Colors.red
-                                        : Colors.green)),
-                        IconButton(
-                            icon: const Icon(Icons.remove_circle_outline),
-                            onPressed: () => _deleteMoeda(
-                                context, items[position], position)),
-                      ]),
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.deepOrange,
-                        radius: 15.0,
-                        child: Text(
-                          '${items[position].id}',
+        body: Container(
+          child: Center(
+            child: ListView.builder(
+                itemCount: items.length,
+                padding: const EdgeInsets.all(15.0),
+                itemBuilder: (context, position) {
+                  return Column(
+                    children: [
+                      Divider(height: 5.0, color: Colors.grey),
+                      ListTile(
+                        title: Text(
+                          '${items[position].nome} - ${items[position].simbolo}',
                           style: TextStyle(
-                            fontSize: 15.0,
-                            color: Colors.white,
+                            fontSize: 22.0,
+                            color: Colors.deepOrangeAccent,
                           ),
                         ),
+                        subtitle: Row(children: [
+                          Text('USD ${items[position].valor}',
+                              style: new TextStyle(
+                                  fontSize: 18.0,
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.orangeAccent)),
+                          Text(' ${items[position].variacao_dia}',
+                              style: new TextStyle(
+                                  fontSize: 16.0,
+                                  fontStyle: FontStyle.italic,
+                                  color:
+                                      items[position].variacao_dia.contains('-')
+                                          ? Colors.red
+                                          : Colors.green)),
+                          IconButton(
+                              icon: const Icon(
+                                Icons.remove_circle_outline,
+                                color: Colors.redAccent,
+                              ),
+                              onPressed: () => _deleteMoeda(
+                                  context, items[position], position)),
+                        ]),
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.deepOrange,
+                          radius: 15.0,
+                          child: Text(
+                            '${items[position].id}',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        onTap: () => _navigateToMoeda(context, items[position]),
                       ),
-                      onTap: () => _navigateToMoeda(context, items[position]),
-                    ),
-                  ],
-                );
-              }),
+                    ],
+                  );
+                }),
+          ),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(
+                      'https://img.freepik.com/free-photo/close-up-heap-golden-bitcoin-physical-coins-black-background_273651-208.jpg?size=626&ext=jpg'),
+                  fit: BoxFit.cover)),
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
