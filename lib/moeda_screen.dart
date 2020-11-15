@@ -37,7 +37,7 @@ class _MoedaScreenState extends State<MoedaScreen> {
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: NetworkImage(
-                    'https://img.freepik.com/free-photo/close-up-heap-golden-bitcoin-physical-coins-black-background_273651-208.jpg?size=626&ext=jpg'),
+                    'https://raw.githubusercontent.com/visued/BitMob/master/logo/logo.png'),
                 fit: BoxFit.cover)),
         margin: EdgeInsets.all(15.0),
         alignment: Alignment.center,
